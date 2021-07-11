@@ -105,6 +105,7 @@ pub(crate) static SPAWN_STATS: phf::Map<&'static str, SpawnTrajectory> = phf::ph
     "Archetypes.Tutorial.Cannon" => SpawnTrajectory::Location,
     "gameinfo_godball.GameInfo.gameinfo_godball:Archetype" => SpawnTrajectory::Location,
     "gameinfo_godball.GameInfo.gameinfo_godball:GameReplicationInfoArchetype" => SpawnTrajectory::Location,
+    "TAGame.Default__PickupTimer_TA" => SpawnTrajectory::Location,
 };
 
 pub(crate) static ATTRIBUTES: phf::Map<&'static str, AttributeTag> = phf::phf_map! {
@@ -172,6 +173,9 @@ pub(crate) static ATTRIBUTES: phf::Map<&'static str, AttributeTag> = phf::phf_ma
     "TAGame.Car_TA:RumblePickups" => AttributeTag::ActiveActor,
     "TAGame.RumblePickups_TA:ConcurrentItemCount" => AttributeTag::Int,
     "TAGame.RumblePickups_TA:AttachedPickup" => AttributeTag::ActiveActor,
+    "TAGame.RumblePickups_TA:PickupInfo" => AttributeTag::PickupInfo,
+    "TAGame.PickupTimer_TA:MaxTimeTillItem" => AttributeTag::Int,
+    "TAGame.PickupTimer_TA:TimeTillItem" => AttributeTag::Int,
     "TAGame.Car_TA:TeamPaint" => AttributeTag::TeamPaint,
     "TAGame.CarComponent_Boost_TA:bNoBoost" => AttributeTag::Boolean,
     "TAGame.CarComponent_Boost_TA:BoostModifier" => AttributeTag::Float,
@@ -384,6 +388,8 @@ pub(crate) fn object_classes() -> Vec<(&'static str, &'static str)> {
         ("gameinfo_godball.GameInfo.gameinfo_godball:Archetype", "TAGame.GameEvent_GodBall_TA"),
         ("GameInfo_FootBall.GameInfo.GameInfo_FootBall:Archetype", "TAGame.GameEvent_Football_TA"),
         ("Archetypes.Ball.Ball_God", "TAGame.Ball_God_TA"),
+        // ("TAGame.Default__RumblePickups_TA", "TAGame.PickupTimer_TA")
+        ("TAGame.Default__RumblePickups_TA", "TAGame.RumblePickups_TA"),
     ]
 }
 
@@ -446,4 +452,6 @@ pub(crate) static PARENT_CLASSES: phf::Map<&'static str, &'static str> = phf::ph
     "TAGame.Cannon_TA" => "Engine.Actor",
     "TAGame.Ball_God_TA" => "TAGame.Ball_TA",
     "TAGame.GameEvent_GodBall_TA" => "TAGame.GameEvent_Soccar_TA",
+    // "TAGame.Default__RumblePickups_TA" => "TAGame.PickupTimer_TA",
+    "TAGame.PickupTimer_TA" => "TAGame.CarComponent_TA",
 };

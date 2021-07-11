@@ -13,7 +13,7 @@ macro_rules! frame_len_test {
 
             match parsing {
                 Ok(replay) => assert_eq!(replay.network_frames.unwrap().frames.len(), $frame_len),
-                Err(ref e) => panic!(format!("{}", e)),
+                Err(ref e) => panic!("{}", e),
             }
         }
     };
@@ -89,3 +89,4 @@ frame_len_test!(test_rumble_pickup_replay, "../assets/replays/good/140a5.replay"
 frame_len_test!(test_rlcs2_replay, "../assets/replays/good/rlcs2.replay", 10664);
 frame_len_test!(test_00bb_replay, "../assets/replays/good/00bb.replay", 8175);
 frame_len_test!(test_gridiron_replay, "../assets/replays/good/gridiron.replay", 11118);
+frame_len_test!(test_season_3_replay, "../assets/replays/good/1c70.replay", 11118);

@@ -274,21 +274,21 @@ pub struct UniqueId {
     pub local_id: u8,
 }
 
-#[derive(Debug, Default, Clone, PartialEq, Hash, Serialize)]
+#[derive(Debug, Default, Clone, PartialEq, Hash, Serialize, Deserialize)]
 pub struct PsyNetId {
     #[serde(serialize_with = "crate::serde_utils::display_it")]
     pub online_id: u64,
     pub unknown1: Vec<u8>,
 }
 
-#[derive(Debug, Default, Clone, PartialEq, Hash, Serialize)]
+#[derive(Debug, Default, Clone, PartialEq, Hash, Serialize, Deserialize)]
 pub struct SwitchId {
     #[serde(serialize_with = "crate::serde_utils::display_it")]
     pub online_id: u64,
     pub unknown1: Vec<u8>,
 }
 
-#[derive(Debug, Default, Clone, PartialEq, Hash, Serialize)]
+#[derive(Debug, Default, Clone, PartialEq, Hash, Serialize, Deserialize)]
 pub struct Ps4Id {
     #[serde(serialize_with = "crate::serde_utils::display_it")]
     pub online_id: u64,
@@ -296,7 +296,7 @@ pub struct Ps4Id {
     pub unknown1: Vec<u8>,
 }
 
-#[derive(Debug, Clone, PartialEq, Hash, Serialize)]
+#[derive(Debug, Clone, PartialEq, Hash, Serialize, Deserialize)]
 pub enum RemoteId {
     PlayStation(Ps4Id),
     PsyNet(PsyNetId),

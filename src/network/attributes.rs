@@ -267,7 +267,7 @@ pub struct RigidBody {
     pub angular_velocity: Option<Vector3f>,
 }
 
-#[derive(Debug, Clone, PartialEq, Hash, Serialize)]
+#[derive(Debug, Clone, PartialEq, Hash, Serialize, Deserialize)]
 pub struct UniqueId {
     pub system_id: u8,
     pub remote_id: RemoteId,
